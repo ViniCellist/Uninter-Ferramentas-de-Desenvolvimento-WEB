@@ -1,7 +1,12 @@
+//a função mostrar() recebe o valor passado pelo <button> e exibe o contéudo presente no objeto
+
 function mostrar(secao) {
   const conteudo = document.getElementById("conteudo");
 
   const secoes = {
+
+    //ao clicar no botão "Sobre mim" aparecerá o conteúdo dentro do objeto 'sobre'
+
     sobre: `
       <div class="sobreMim">
         <h2>Sobre Mim</h2>
@@ -13,36 +18,42 @@ function mostrar(secao) {
       </div>
       
     `,
+
+    //ao clicar no botão "Formação" aparecerá o conteúdo dentro do objeto 'formacao'
+
     formacao: `
-    <div class="formacaoContainer">
-      <h2 class="titleAlign">Formação</h2>
-      <div>
-        <h3>Alura - Full-Stack Developer</h3>
-        <p>Tempo de curso: 1 ano</p>
-        <p>Técnologias: HTML5, CSS3, JavaScript, TypeScript, SASS, Tailwind, Bootstrap, React, C#.</p>
+      <div class="formacaoContainer">
+        <h2 class="titleAlign">Formação</h2>
+        <div>
+          <h3>Alura - Full-Stack Developer</h3>
+          <p>Tempo de curso: 1 ano</p>
+          <p>Técnologias: HTML5, CSS3, JavaScript, TypeScript, SASS, Tailwind, Bootstrap, React, C#.</p>
+        </div>
+        <div>
+          <h3>Curso em Vídeo</h3>
+          <p>Tempo de curso: 1 ano</p>
+          <p>Técnologias: HTML5, CSS3, JavaScript, Git, Github, MySQL</p>
+        </div>
+        <div>
+            <h3>Wizard - Inglês</h3>
+          <p>Tempo de curso: 6 anos</p>
+          <p>Aprendizado de inglês avançado.</p>
+        </div>
+        <div>
+          <h3>Academia do Provedor</h3>
+          <p>Tempo de curso: 1 ano</p>
+          <p>Gestão de projetos, desenvolvimento e implementação de redes FTTx.</p>
+        </div>
+        <div>
+          <h3>ETEC - Administração</h3>
+          <p>Tempo de curso: 1 ano e 6 meses</p>
+          <p>Aprendizado para gerencimento de negócios.</p>
+        </div>
       </div>
-      <div>
-        <h3>Curso em Vídeo</h3>
-        <p>Tempo de curso: 1 ano</p>
-        <p>Técnologias: HTML5, CSS3, JavaScript, Git, Github, MySQL</p>
-      </div>
-      <div>
-          <h3>Wizard - Inglês</h3>
-        <p>Tempo de curso: 6 anos</p>
-        <p>Aprendizado de inglês avançado.</p>
-      </div>
-      <div>
-        <h3>Academia do Provedor</h3>
-        <p>Tempo de curso: 1 ano</p>
-        <p>Gestão de projetos, desenvolvimento e implementação de redes FTTx.</p>
-      </div>
-      <div>
-        <h3>ETEC - Administração</h3>
-        <p>Tempo de curso: 1 ano e 6 meses</p>
-        <p>Aprendizado para gerencimento de negócios.</p>
-      </div>
-    </div>
     `,
+
+    //ao clicar no botão "Projetos" aparecerá o conteúdo dentro do objeto 'projetos'
+
     projetos: `
     <div class="projetoContainer">
       <h2 class="titleAlign">Projetos</h2>
@@ -92,6 +103,9 @@ function mostrar(secao) {
       </div>
     </div>
     `,
+
+    //ao clicar no botão "Contato" aparecerá o conteúdo dentro do objeto 'contato'
+
     contato: `
       <h2 class="titleAlign">Contato</h2>
       <div>
@@ -122,7 +136,13 @@ function mostrar(secao) {
     `
   };
 
+  // o innerHTML se encarrega de inserir o HTML presente nos objetos lá na tag <main>
+
   conteudo.innerHTML = secoes[secao];
+
+  // como um dos requisitos era apenas fazer a parte visual do formulário e usar um javascript "livre", sem um backend ou uma biblioteca para enviar...o formulário não funciona!
+
+  //a lógica abaixo verifica se os campos do formulário foram preenchidos antes de habilitar o botão "Enviar", e exibe uma mensagem fictícia que a mensagem foi enviada através de um alert()
 
   if (secao === 'contato') {
     const nome = document.getElementById("nome");
@@ -148,6 +168,8 @@ function mostrar(secao) {
     });
   }  
 }
+
+// e por ultimo, esta função abaixo faz que página já seja carregada com o parametro 'sobre', ja exibindo o conteúdo antes mesmo de clicar.
 
 window.onload = () => {
   mostrar('sobre');
